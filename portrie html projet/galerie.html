@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKHAR - Galerie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+   body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              background: linear-gradient(135deg, #4e4d4d 0%, #302e2e 50%, #5b5b5b 80% , #323232 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            color: #c19a6b;
+            text-decoration: none;
+            font-weight: 900;
+            
+        
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links a:hover {
+            color: #c19a6b;
+        }
+
+        section {
+            padding: 120px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #c19a6b;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(193, 154, 107, 0.3);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(193, 154, 107, 0.3);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(193, 154, 107, 0.3), rgba(193, 154, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .gallery-item h3 {
+            margin-top: 15px;
+            color: #c19a6b;
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #c19a6b;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .team-info {
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo"><i><b>FAKHAR</b></i></a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i><b>ACCUEIL</b></i></a></li>
+                <li><a href="boutique00.html"><i><b>BOUTIQUE</b></i></a></li>
+                <li><a href="galerie.html" style="color: #c19a6b;"><i><b><u>GALERIE</u></b></i></a></li>
+                <li><a href="a_propose.html"><i><b>À PROPOS</b></i></a></li>
+                <li><a href=""><i><b>CONTACT</b></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h3 class="tets77">Galerie</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="atelier de creation.jpg" alt="Atelier de Création" width="700" height="250"></div>
+                <h3>Atelier de Création</h3>
+            </div>
+           
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="main.jpeg" alt="Théière Traditionnelle" width="700" height="250"></div>
+                <h3>Façonnage à la Main</h3>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="dicoration artistique.jpeg" alt="Décoration Artistique" width="700" height="250"></div>
+                <h3>Décoration Artistique</h3>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="Finitions Détaillées plat.webp" alt="Finitions Détaillées" width="700" height="250"></div>
+                <h3>Finitions Détaillées</h3>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="Pièces d'Exception.jpg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="mishariya1.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="isharya2.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="israriya3.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="ishariya4.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="ishariya5.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images (6).jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="ishariya7.jpeg" alt="Pièces d'Exception" width="700" height="250"></div>
+                <h3>Pièces d'Exception</h3>
+            </div>
+        </div>
+    </section>
+
+</body>
+<footer>
+   
+        <p>&copy; 2025 FAKHAR - L'Art de la Poterie Artisanale</p>
+      
+    
+</footer>
+
+</html>

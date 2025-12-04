@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKHAR - boutique00</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4e4d4d 0%, #302e2e 50%, #5b5b5b 80%, #323232 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 0.2em;
+            color: #c19a6b;
+            text-decoration: none;
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c19a6b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #c19a6b;
+        }
+
+        section {
+            padding: 120px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test77 {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #c19a6b;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(193, 154, 107, 0.4);
+            padding: 25px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(193, 154, 107, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(193, 154, 107, 0.4);
+            border-color: #c19a6b;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(193, 154, 107, 0.3), rgba(193, 154, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #c19a6b;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .product-info p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: #c19a6b;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background: #c19a6b;
+            color: #1a1a1a;
+            border: 2px solid #c19a6b;
+            padding: 12px 25px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .add-to-cart:hover {
+            background: transparent;
+            color: #c19a6b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+        }
+
+        .add-to-cart:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(193, 154, 107, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Menu burger pour mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #c19a6b;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 30px;
+                gap: 25px;
+                transition: right 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .test77 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card {
+                padding: 20px;
+            }
+
+            .product-image {
+                height: 220px;
+            }
+
+            .test77 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo"><b><i>FAKHAR</i></b></a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i><b>ACCUEIL</b></i></a></li>
+                <li><a href="boutique00.html" style="color: #c19a6b;"><i><b><u>BOUTIQUE</u></b></i></a></li>
+                <li><a href="galerie.html"><i><b>GALERIE</b></i></a></li>
+                <li><a href="a_propose.html"><i><b>À PROPOS</b></i></a></li>
+                <li><a href="contact.html"><i><b>CONTACT</b></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h1 class="test77"><b>Notre Boutique</b></h1>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="H0134-L100878475.jpg" alt="Vase Ancestral">
+                </div>
+                <div class="product-info">
+                    <h3>Vase Ancestral</h3>
+                    <p>Pièce unique façonnée à la main, inspirée des traditions berbères.</p>
+                    <div class="price">399 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Vase Ancestral', 399)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images (1000000).jpeg" alt="Théière Traditionnelle">
+                </div>
+                <div class="product-info">
+                    <h3>Théière Traditionnelle</h3>
+                    <p>Élégance et fonctionnalité pour vos moments de détente.</p>
+                    <div class="price">159 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Théière Traditionnelle', 159)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Tajine-sousoukitchen-17-.jpg" alt="tajin">
+                </div>
+                <div class="product-info">
+                    <h3>Plat à Tajine</h3>
+                    <p>Plat à tajine bleu profond - collection rêves d'Orient</p>
+                    <div class="price">539 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Plat à tajine', 539)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images (1)mizhariya.jpeg" alt="Pot Décoratif">
+                </div>
+                <div class="product-info">
+                    <h3>Pot Décoratif</h3>
+                    <p>Design contemporain avec finitions artisanales.</p>
+                    <div class="price">320 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Pot Décoratif', 320)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="targq91222.jpeg" alt="Jarre de Conservation">
+                </div>
+                <div class="product-info">
+                    <h3>Jarre de Conservation</h3>
+                    <p>Pratique et esthétique pour votre cuisine.</p>
+                    <div class="price">380 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Jarre de Conservation', 380)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images (12444).jpeg" alt="Assiette">
+                </div>
+                <div class="product-info">
+                    <h3>Assiette Tradition</h3>
+                    <p>Formes épurées et lignes contemporaines.</p>
+                    <div class="price">549 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Assiette Tradition', 549)">Ajouter au panier</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="decorative image 7.jpg" alt="Assiette">
+                </div>
+                <div class="product-info">
+                    <h3>Assiette Prestige</h3>
+                    <p>Formes épurées et lignes contemporaines.</p>
+                    <div class="price">969 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Assiette Prestige', 969)">Ajouter au panier</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images (5).jpeg" alt="Assiette">
+                </div>
+                <div class="product-info">
+                    <h3>Assiette Élégance</h3>
+                    <p>Formes épurées et lignes contemporaines.</p>
+                    <div class="price">569 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Assiette Élégance', 569)">Ajouter au panier</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images (18).jpeg" alt="Assiette">
+                </div>
+                <div class="product-info">
+                    <h3>Assiette Raffinée</h3>
+                    <p>Formes épurées et lignes contemporaines.</p>
+                    <div class="price">569 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Assiette Raffinée', 569)">Ajouter au panier</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="download12333.jpeg" alt="Assiette">
+                </div>
+                <div class="product-info">
+                    <h3>Assiette Premium</h3>
+                    <p>Formes épurées et lignes contemporaines.</p>
+                    <div class="price">809 €</div>
+                    <button class="add-to-cart" onclick="addToCart('Assiette Premium', 809)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 FAKHAR - L'Art de la Poterie Artisanale</p>
+        </div>
+    </footer>
+    
+    <script>
+        function addToCart(productName, price) {
+            const button = event.target;
+            button.innerHTML = '✓ Ajouté !';
+            button.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                button.innerHTML = 'Ajouter au panier';
+                button.style.background = '';
+            }, 2000);
+            
+            alert(`✓ "${productName}" ajouté au panier!\nPrix: ${price} €`);
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

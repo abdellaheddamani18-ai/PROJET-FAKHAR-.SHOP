@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKHAR - À Propos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              background: linear-gradient(135deg, #4e4d4d 0%, #302e2e 50%, #5b5b5b 80% , #323232 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            color: #c19a6b;
+            text-decoration: none;
+            font-weight: 900;
+            
+        
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links a:hover {
+            color: #c19a6b;
+        }
+
+        section {
+            padding: 120px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #c19a6b;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(193, 154, 107, 0.3), rgba(193, 154, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 1px solid rgba(193, 154, 107, 0.3);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #c19a6b;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .team-info {
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+                font-size: 0.85rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo"> <b><i>FAKHAR</i></b></a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i><b>ACCUEIL</b></i></a></li>
+                <li><a href="boutique00.html"><i><b>BOUTIQUE</b></i></a></li>
+                <li><a href="galerie.html"><i><b>GALERIE</b></i></a></li>
+                <li><a href="a_propose.html" style="color: #c19a6b;"><i><b><u>À PROPOS</u></b></i></a></li>
+                <li><a href="contact.html"><i><b>CONTACT</b></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h3>À PROPOS DE FAKHAR</h3>
+        <div class="about-content">
+            <div class="about-text">
+                <p>FAKHAR est un site web vitrine et boutique dédié à la poterie artisanale. Notre atelier perpétue les traditions ancestrales tout en intégrant des designs contemporains.</p>
+                <p>Chaque pièce est façonnée avec passion et savoir-faire, créant des objets uniques qui racontent une histoire. Notre engagement est de préserver l'artisanat marocain tout en l'adaptant aux goûts modernes.</p>
+                <p>Nous utilisons des techniques traditionnelles transmises de génération en génération, combinées à une vision artistique contemporaine pour créer des œuvres qui embellissent votre quotidien.</p>
+            </div>
+            <div class="about-image"><img src="homme.jpeg" alt="À Propos de FAKHAR" width="700" height="400"></div>
+        </div>
+    </section>
+
+</body>
+<footer>
+   
+        
+        <p>&copy; 2025 FAKHAR - L'Art de la Poterie Artisanale</p>
+        
+    
+</footer>
+</html>
