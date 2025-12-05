@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKHAR - Galerie</title>
+    <style>
+        /* CSS Omitted for Brevity (Identical to previous code) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4e4d4d 0%, #302e2e 50%, #5b5b5b 80% , #323232 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        header {
+              background: 0.8 transparent;
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            color: #c19a6b;
+            text-decoration: none;
+            font-weight: 900;
+            
+            
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links a:hover {
+            color: #c19a6b;
+        }
+
+        section {
+            padding: 120px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #c19a6b;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(193, 154, 107, 0.3);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(193, 154, 107, 0.3);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(193, 154, 107, 0.3), rgba(193, 154, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .gallery-item h3 {
+            margin-top: 15px;
+            color: #c19a6b;
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        footer {
+              background: 0.8 transparent;
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+              box-shadow: 0 4px 20px rgba(1, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #c19a6b;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .team-info {
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+          
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+            .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #c19a6b;
+            transition: all 0.3s ease;
+        } 
+        
+
+            @media (max-width: 768px) {
+            .menu-toggle {
+                /* Affiche le hamburger sur mobile */
+                display: flex;
+
+            } 
+           
+            
+            /* Styles du menu mobile ajustés */
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Positionnement juste sous l'en-tête */
+                right: -100%; /* Initialement masqué à droite */
+                height: calc(50vh - 70px); /* Prend l'espace restant sous l'en-tête */
+                width: 40%; 
+                max-width: 200px;
+                flex-direction: column;
+                align-items: center;
+                  background: transparent;
+            backdrop-filter: blur(10px);
+                
+                padding: 30px;
+                gap: 25px; /* Espacement réduit comme demandé */
+                transition: right 0.3s ease;
+                backdrop-filter: blur(10px);
+                z-index: 99; /* Moins que le hamburger */
+            }
+
+            .nav-links.active {
+                right: 0; /* Déplace le menu dans la vue */
+                display: flex; /* Force l'affichage du menu */
+            } 
+        } 
+        
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          
+          <b> <i><a href="page_accell.html" class="logo">FAKHAR</a></i></b>
+          <div class="menu-toggle" onclick="toggleMenu()">
+              <span> </span>
+              <span> </span>
+              <span> </span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i><b>ACCUEIL</b></i></a></li>
+                <li><a href="boutique00.html"><i><b>BOUTIQUE</b></i></a></li>
+                <li><a href="galerie.html" style="color: #c19a6b;"><i><b><u>GALERIE</u></b></i></a></li>
+                <li><a href="a_propose.html"><i><b>À PROPOS</b></i></a></li>
+                <li><a href="contact.html"><i><b>CONTACT</b></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gal">
+        <h3 class="tets77">Galerie d'Artisanat</h3>
+        <div class="gallery-grid">
+            
+          <div class="gallery-item">
+                <div class="gallery-image"><img src="images/k5.avif" alt="Plat Ciselé" width="700" height="250"></div>
+                <h3>Pot à Ustensiles 'Grès Brute' (Non Émaillé)</h3>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/s1.png" alt="Façonnage à la Main" width="700" height="250"></div>
+                <h3>Vases 'Craquelé Ivoire' (Finition Céladon)</h3>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/a5.avif" alt="Séhage de l'argile" width="700" height="250"></div>
+                <h3>Set de Bols et Assiettes 'Émail Tacheté'</h3>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gal5.jpeg" alt="Décoration Artistique" width="700" height="250"></div>
+                <h3>Service à Thé 'Fleurs Bleues' (Décoration Peinte à la Main)</h3>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gal6.jpeg" alt="Grande Jarre Décorative" width="700" height="250"></div>
+                <h3>Tasses à thé empilées en porcelaine élégante</h3>
+            </div>
+            
+           
+               <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gal1.jpg" alt="Atelier de Création" width="700" height="250"></div>
+                <h3>Service en céramique traditionnelle avec motifs berbèresr</h3>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/kkk1.avif" alt="Vase en Zellige Bleu" width="700" height="250"></div>
+                <h3>Vase 'Chefchaouen' </h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/a1.avif" alt="Assiettes Décoratives" width="700" height="250"></div>
+                <h3>Jarres traditionnelles en argile</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/kk3.avif" alt="Service à Thé en Céramique" width="700" height="250"></div>
+                <h3>Service à Thé Complet </h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gal7.jpeg" alt="Pot à Épices Marrakech" width="700" height="250"></div>
+                <h3>Marmite en argile artisanale</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gii4.avif" alt="Lampe en Céramique Perforée" width="700" height="250"></div>
+                <h3>Set Céramique Minimaliste </h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/kkht4.png" alt="Tajines et Plats de Fès" width="700" height="250"></div>
+                <h3>Collection de poteries décoratives vertes</h3>
+            </div>
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/a9.png" alt="Plat de Service Bleu Zellige" width="700" height="250"></div>
+                <h3>Grand Plat Ovale 'vers Zellige'</h3>
+            </div>
+            
+             <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gal1.jpg" alt="Tasse à Café en Céramique" width="700" height="250"></div>
+                <h3>Set Céramique Minimaliste</h3>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image"><img src="images/gaii1.avif" alt="Porte-encens" width="700" height="250"></div>
+                <h3>Pichet, Tasse et Assiette Déjeuner.h3>
+            </div>
+            
+     
+
+        </div>
+    </section>
+
+    <footer>
+        
+        <p>&copy; 2025 FAKHAR - L'Art de la Poterie Artisanale</p>
+        
+        
+    </footer>
+</body>
+
+<script>
+        function addToCart(productName, price) {
+            const button = event.target;
+            button.innerHTML = '✓ Ajouté !';
+            button.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                button.innerHTML = 'Ajouter au panier';
+                button.style.background = '';
+            }, 2000);
+            
+            alert(`✓ "${productName}" ajouté au panier!\nPrix: ${price} €`);
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</html>
